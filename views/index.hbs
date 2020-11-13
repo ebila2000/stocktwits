@@ -12,17 +12,21 @@
    <div class="main-content">
        {{>header}}
 
+        <form>
+            <input placeholder="Symbol">
+            <button>Search</button>
+
+        </form>
+
 
    </div>
-   
-   
-    
-    {{#each comments}}
-    <h4>
-        <li>{{this}}</li>
-    </h4>
-    {{/each}}
 
+   <p id="message">
+   </p>
+    
+   
     {{>footer}}
+    
+    <script src="./js/app.js"></script>
 </body>
 </html>

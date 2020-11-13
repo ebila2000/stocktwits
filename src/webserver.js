@@ -16,11 +16,20 @@ const webapp = express()
 webapp.set('view engine', 'hbs') // to add the handlebars to to the custom directory
 webapp.set('views',views_path)
 handlebars.registerPartials(partials_path)
-
-webapp.use(express.static(abs_publicpath)) // setting up the static directory
+webapp.use(express.static(abs_publicpath)) // setting up the static directory or otherwise the webserver cannot render the contents of it
 webapp.listen(port || 3000, () => { console.log("Server Started") })
 
 
+
+
+webapp.get('', (req, res)=> {
+    console.log('index page');
+    
+    const { proxyip, proxyport } = proxy.getproxy(undefined);
+
+    
+    res.render("index", {symbol: "", comments:[]});
+})
 
 
 webapp.get('/symbol2/*', (req, res) => {
@@ -36,8 +45,8 @@ webapp.get('/symbol2/*', (req, res) => {
                 mes.push(m.body)
         })
        
-        console.log("Writing to the browser")
-        res.render("index", { symbol: data.symbol.symbol, comments:mes })
+        console.log("Writing to the browser " + data)
+        res.render("index", data)//{ symbol: data.symbol.symbol, comments:mes })
 
     })
 })
