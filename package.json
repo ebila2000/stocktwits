@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start":"node ./src/webserver.js"
+  },
+  "name": "stock-twits-api-test",
+  "version": "0.0.0",
+  "description": "StockTwitsApiTest",
+  "main": "app.js",
+  "author": {
+    "name": "ServerDev2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "postman-request": "^2.88.1-postman.27"
+  }
+}
