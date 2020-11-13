@@ -3,20 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Stock Price</title>
-    {{symbol}}
-
-
-   
-
     
+    <title>Stock Price</title>
+<!--    {{symbol}}-->
 
 </head>
 <body>
+   <div class="main-content">
+       {{>header}}
+
+
+   </div>
+   
+   
+    
     {{#each comments}}
     <h4>
         <li>{{this}}</li>
     </h4>
     {{/each}}
+
+    {{>footer}}
 </body>
 </html>

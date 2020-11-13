@@ -2,17 +2,20 @@
 const express = require("express")
 const stocktwits = require("./stocktwits")
 const proxy = require("./proxy")
+const  handlebars  = require("hbs")
 
 // point express to the public variable
 
 const abs_publicpath = path.join(__dirname, "../public")
 const views_path = path.join(__dirname, "../views")
+const partials_path = path.join(__dirname, "../partials")
 const port = process.env.PORT
 const webapp = express()
 
 //webapp.engine('hbs', handlebars.engine);
-webapp.set('view engine', 'hbs') // to add the handlebars to the express to be used
-webapp.set('views', views_path) // pointing express to the custom directory
+webapp.set('view engine', 'hbs') // to add the handlebars to to the custom directory
+webapp.set('views',views_path)
+handlebars.registerPartials(partials_path)
 
 webapp.use(express.static(abs_publicpath)) // setting up the static directory
 webapp.listen(port || 3000, () => { console.log("Server Started") })
