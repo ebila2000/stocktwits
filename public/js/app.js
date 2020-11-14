@@ -25,7 +25,7 @@ search_form.addEventListener("submit", (e)=> {
                 console.log(data)
                 if (data.messages === undefined)
                 {
-                    messageOutput.textContent =  "Empty Results"
+                    messageOutput.textContent =  "Empty Results. Nothing to show."
    
                 }
                 else{
