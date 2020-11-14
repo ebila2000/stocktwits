@@ -11,7 +11,7 @@ search_form.addEventListener("submit", (e)=> {
     const symbol = val.value;
     console.log(symbol);
     messageOutput.textContent =  "Loading...."
-    fetch("./symbol/search?q=" + symbol).then((response) => {
+    fetch("./symbol/search?symbol=" + symbol).then((response) => {
         console.log(response)
         response.json().then((data)=> {
             if (data.error)

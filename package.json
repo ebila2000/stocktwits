@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start":"node ./src/webserver.js"
+    "start": "node ./src/webserver.js"
   },
   "name": "stock-twits-api-test",
   "version": "0.0.0",
@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.1.1",
+    "mongodb": "^3.6.3",
     "postman-request": "^2.88.1-postman.27"
   }
 }
