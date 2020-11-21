@@ -3,6 +3,8 @@ const express = require("express")
 const stocktwits = require("./stocktwits")
 const proxy = require("./proxy")
 const  handlebars  = require("hbs")
+const mongodb = require("mongodb")
+
 
 // point express to the public variable
 
