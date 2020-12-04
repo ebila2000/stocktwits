@@ -33,7 +33,7 @@ const fetchstocktwitsbysymbol =
             {
                 callback(undefined, res.body)
             }
-            })
+        })
     }
 
 

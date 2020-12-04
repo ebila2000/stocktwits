@@ -3,7 +3,7 @@ const express = require("express")
 const stocktwits = require("./stocktwits")
 const proxy = require("./proxy")
 const  handlebars  = require("hbs")
-const mongodb = require("mongodb")
+const mongodb = require("./db/mongoDb-internal")
 
 
 // point express to the public variable
@@ -58,12 +58,12 @@ webapp.get('/symbol/:symbol?', (req, res) => {
     console.log(req.params.symbol,  proxyip, proxyport)
     stocktwits.fetchstocktwitsbysymbol(req.params.symbol, proxyip, proxyport, (error, data) => {
        
-        console.log(data)
+        console.log(data.symbol.symbol )
         console.log(error)
         
        
-        console.log("Writing to the browser " + data)
-        res.render("index", {data:JSON.stringify(data)})//{ symbol: data.symbol.symbol, comments:mes })
+         res.render("index", { data: JSON.stringify(data)})
+         mongodb.InsertStockTwitsBySymbol({data:data})
 
     })
 })
@@ -80,7 +80,7 @@ webapp.get('/user/:user?', (req, res) => {
         
        
         console.log("Writing to the browser " + data)
-        res.render("index", {data:JSON.stringify(data)})//{ symbol: data.symbol.symbol, comments:mes })
+        res.render("index", {data:data})//{ symbol: data.symbol.symbol, comments:mes })
 
     })
 })
